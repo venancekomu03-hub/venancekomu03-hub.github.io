@@ -269,14 +269,14 @@
   }), { rootMargin: '0px 0px -12% 0px' });
   $$('[data-split], [data-reveal]').forEach((el) => io.observe(el));
 
-  // statement lights up word by word as it scrolls through
+  // statement lights up word by word as it scrolls in, fully lit once its bottom is 80% down the screen
   const scrub = $('[data-scrub]');
   if (scrub) {
     const n = splitWords(scrub, 'sw');
     const words = $$('.sw', scrub);
     const update = () => {
       const r = scrub.getBoundingClientRect();
-      const p = reduce ? 1 : clamp((innerHeight * 0.85 - r.top) / (r.height + innerHeight * 0.3), 0, 1);
+      const p = reduce ? 1 : clamp((innerHeight - r.top) / (r.height + innerHeight * 0.2), 0, 1);
       const k = Math.round(p * n);
       words.forEach((w, i) => w.classList.toggle('on', i < k));
     };
@@ -476,13 +476,11 @@
   $$('.row').forEach((row) => {
     const btn = $('.row-head', row);
     const body = $('.row-body', row);
-    body.inert = true;
+    body.inert = !row.classList.contains('open');
     btn.addEventListener('click', () => {
       const open = row.classList.toggle('open');
       btn.setAttribute('aria-expanded', open);
       body.inert = !open;
-      const pv = document.querySelector('.preview');
-      if (pv) pv.classList.toggle('on', !open && btn.matches(':hover'));
     });
   });
 
@@ -501,7 +499,6 @@
     $$('.row-head').forEach((head) => {
       const key = head.closest('.row').dataset.preview;
       head.addEventListener('pointerenter', (e) => {
-        if (head.closest('.row').classList.contains('open')) return;
         if (!shown) { x = tx = e.clientX; y = ty = e.clientY; }
         panes.forEach((p) => p.classList.toggle('cur', p.dataset.k === key));
         preview.classList.add('on');
@@ -540,6 +537,16 @@
     scrollFns.push(hUpdate);
     resizeFns.push(hSetup);
     fontsReady.then(hSetup);
+
+    // sideways trackpad swipes (and shift + wheel) move the reel too, instead of triggering browser back/forward
+    proj.addEventListener('wheel', (e) => {
+      if (!hOn || Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+      const r = proj.getBoundingClientRect();
+      if (r.top > 1 || r.bottom < innerHeight - 1) return;
+      e.preventDefault();
+      const y = clamp(scrollY + e.deltaX, scrollY + r.top, scrollY + r.bottom - innerHeight);
+      if (y !== scrollY) scrollTo({ top: y, behavior: 'instant' });
+    }, { passive: false });
   }
 
   /* ---------- custom cursor ---------- */

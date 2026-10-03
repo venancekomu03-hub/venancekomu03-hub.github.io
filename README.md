@@ -9,8 +9,8 @@ Personal website of **Venance Komu**, electrical engineering and mathematics stu
 ## What's in it
 
 - **Hero** with signal-trace lines drawn on a canvas that bend around the cursor, and a variable font whose letters thicken and narrow as the pointer gets close.
-- **Experience** as expandable rows, with a small animated preview that follows the cursor.
-- **Projects** in a pinned section where scrolling down moves the cards sideways.
+- **Experience** as rows that start open (each can be collapsed), with a small animated preview that follows the cursor.
+- **Projects** in a pinned section where scrolling down, or swiping sideways on a trackpad, moves the cards sideways.
 - **Generated artwork** for each project (an illustrative XRF spectrum, a delivery route with geofences, a battery bank, a KNN plot), built as SVG in JavaScript.
 - Page colour that changes with the section, a full-screen menu, a custom cursor, and magnetic buttons.
 
