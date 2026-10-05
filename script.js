@@ -104,6 +104,17 @@
   };
 
   const ART = {
+    // Circuit board whose components get boxed as they are detected.
+    pcb() {
+      const boxes = [[84, 74, 80, 64, 'IC'], [185, 65, 26, 26, 'CAP'], [294, 52, 60, 32, 'CONN'], [228, 108, 64, 56, 'IC'], [318, 164, 24, 24, 'CAP']];
+      return svg('art-pcb', `
+        ${gridLines()}
+        <rect class="ln" x="36" y="36" width="328" height="170" rx="8" stroke-opacity=".35"/><path class="vio-ln draw" d="M48 106H92" pathLength="1"/><path class="vio-ln draw" d="M156 106H176V78H189" pathLength="1"/><path class="vio-ln draw" d="M207 78H270V68H300" pathLength="1"/><path class="vio-ln draw" d="M124 132V176H176" pathLength="1"/><path class="vio-ln draw" d="M192 176H262V158" pathLength="1"/><path class="vio-ln draw" d="M284 146H300V176H321" pathLength="1"/><rect class="vio" x="92" y="86" width="64" height="40" rx="3"/><circle class="ln" cx="100" cy="94" r="2.5"/><line class="ln" x1="99" y1="80" x2="99" y2="86"/><line class="ln" x1="109" y1="80" x2="109" y2="86"/><line class="ln" x1="119" y1="80" x2="119" y2="86"/><line class="ln" x1="129" y1="80" x2="129" y2="86"/><line class="ln" x1="139" y1="80" x2="139" y2="86"/><line class="ln" x1="149" y1="80" x2="149" y2="86"/><line class="ln" x1="99" y1="126" x2="99" y2="132"/><line class="ln" x1="109" y1="126" x2="109" y2="132"/><line class="ln" x1="119" y1="126" x2="119" y2="132"/><line class="ln" x1="129" y1="126" x2="129" y2="132"/><line class="ln" x1="139" y1="126" x2="139" y2="132"/><line class="ln" x1="149" y1="126" x2="149" y2="132"/><rect class="ln" x="236" y="120" width="48" height="32" rx="3"/><line class="ln" x1="242" y1="114" x2="242" y2="120"/><line class="ln" x1="252" y1="114" x2="252" y2="120"/><line class="ln" x1="262" y1="114" x2="262" y2="120"/><line class="ln" x1="272" y1="114" x2="272" y2="120"/><line class="ln" x1="242" y1="152" x2="242" y2="158"/><line class="ln" x1="252" y1="152" x2="252" y2="158"/><line class="ln" x1="262" y1="152" x2="262" y2="158"/><line class="ln" x1="272" y1="152" x2="272" y2="158"/><circle class="ln" cx="198" cy="78" r="9"/><circle class="ln" cx="184" cy="176" r="8"/><circle class="ln" cx="330" cy="176" r="9"/><rect class="ln" x="300" y="58" width="48" height="20" rx="2"/><line class="ln" x1="308" y1="63" x2="308" y2="73"/><line class="ln" x1="318" y1="63" x2="318" y2="73"/><line class="ln" x1="328" y1="63" x2="328" y2="73"/><line class="ln" x1="338" y1="63" x2="338" y2="73"/>
+        ${boxes.map(([x, y, w, h, label], i) => `<g${reduce ? '' : ' opacity="0"'}>${reduce ? '' : `<animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.85;1" dur="6s" begin="${(i * 0.6).toFixed(1)}s" repeatCount="indefinite"/>`}<rect class="vio-ln" x="${x}" y="${y}" width="${w}" height="${h}" rx="3" stroke-dasharray="4 3"/><text class="hi" x="${x}" y="${y - 5}">${label}</text></g>`).join('')}
+        <text class="t" x="20" y="26">PCB component detection (illustrative)</text>
+        ${reduce ? '' : '<line class="scan" x1="0" y1="40" x2="0" y2="202"/>'}`);
+    },
+
     // Illustrative X-ray fluorescence spectrum with the gallium K lines.
     xrf() {
       const id = `xg${++uid}`;
