@@ -1,6 +1,6 @@
 # venancekomu03-hub.github.io
 
-Personal website of **Venance Komu**, electrical engineering and mathematics student at Alfred University (computer science minor, class of 2029).
+Personal website of **Venance Komu**, electrical engineering and mathematics student at Alfred University (computer science minor).
 
 **Live:** https://venancekomu03-hub.github.io
 

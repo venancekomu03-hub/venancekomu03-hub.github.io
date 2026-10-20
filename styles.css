@@ -187,7 +187,7 @@ html.menu-open { overflow: hidden; }
 .js .statement .sw.on { opacity: 1; }
 .about-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 920px; margin-top: clamp(28px, 4vh, 48px); font-size: clamp(15px, 1.05vw, 17px); }
 .about-cols .label { margin-bottom: 12px; }
-.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: clamp(40px, 6vh, 72px); border-top: 1px solid var(--line); }
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: clamp(40px, 6vh, 72px); border-top: 1px solid var(--line); }
 .facts > div { padding: 18px 20px 0 0; }
 .facts .fig { font-size: clamp(36px, 4vw, 72px); font-weight: 600; letter-spacing: -.06em; line-height: .95; margin: 14px 0 8px; font-variant-numeric: tabular-nums; }
 .facts .note { color: var(--muted); font-size: 14px; }
