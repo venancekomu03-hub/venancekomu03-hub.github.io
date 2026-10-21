@@ -142,8 +142,9 @@
               <li>Compiled and cleaned data on secondary gallium sources in Python (pandas, NumPy) and Excel, then used descriptive statistics to compare materials and judge their potential for gallium recovery.</li>
               <li>Built a Material Flow Analysis (MFA) modeling gallium flows and availability across secondary sources, and ran a Monte Carlo uncertainty analysis on it, to assess what those sources could add to the U.S. gallium supply chain.</li>
               <li>Analyzed X-ray fluorescence (XRF) measurements with Python scripts and Matplotlib plots to compare gallium concentrations across candidate materials, with the analysis code kept in Git/GitHub.</li>
+              <li>Extended the research with a YOLOv8 computer vision tool that detects components on circuit-board (PCB) images and estimates each board's critical-material content.</li>
             </ul>
-            <p class="row-tools">Python · pandas · NumPy · Matplotlib · Excel · Git/GitHub</p>
+            <p class="row-tools">Python · pandas · NumPy · Matplotlib · Excel · PyTorch · YOLOv8 · Git/GitHub</p>
           </div></div></div>
         </li>
 
@@ -255,7 +256,7 @@
 
           <article class="card">
             <div class="card-art" data-art="pcb"></div>
-            <p class="card-meta"><span>Personal project</span><span>Summer 2026</span></p>
+            <p class="card-meta"><span>Research project</span><span>Summer 2026</span></p>
             <h3>Circuit Component Detector</h3>
             <p>Computer vision for critical materials. I trained a YOLOv8 model in PyTorch to detect five component classes (ICs, capacitors, resistors, transistors and connectors) on about 500 circuit-board images with 2,000+ labeled instances. A critical-materials reference database then turns the detections into an estimate of each board's material content in mg or g, with the assumptions stated.</p>
             <ul class="tags"><li>Computer vision</li><li>PyTorch</li><li>YOLOv8</li><li>OpenCV</li><li>Linux</li></ul>
