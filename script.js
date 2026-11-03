@@ -140,20 +140,6 @@
         ${reduce ? '' : '<line class="scan" x1="0" y1="44" x2="0" y2="196"/>'}`);
     },
 
-    // Delivery route with geofences and a moving truck.
-    route() {
-      const pts = [[44, 176], [78, 118], [124, 152], [150, 82], [196, 122], [224, 62], [252, 164], [292, 108], [318, 182], [342, 72], [368, 132]];
-      const d = `M${pts.map((p) => p.join(' ')).join('L')}`;
-      return svg('art-route', `
-        ${gridLines()}
-        <path class="ln" d="${d}" stroke-opacity=".25"/>
-        <path class="vio-ln draw" d="${d}" pathLength="1"/>
-        ${[1, 5, 8].map((i, k) => `<circle class="fence" cx="${pts[i][0]}" cy="${pts[i][1]}" r="20" style="animation-delay:${k * 0.9}s"/>`).join('')}
-        ${pts.map((p) => `<circle cx="${p[0]}" cy="${p[1]}" r="4" fill="#ededea"/>`).join('')}
-        <circle r="6" class="vio" cx="${reduce ? pts[0][0] : 0}" cy="${reduce ? pts[0][1] : 0}">${reduce ? '' : `<animateMotion dur="10s" repeatCount="indefinite" path="${d}"/>`}</circle>
-        <text class="t" x="20" y="26">GPS · geofencing</text>`);
-    },
-
     // House with a battery bank charging.
     battery() {
       const cells = [0, 1, 2, 3].map((i) => `

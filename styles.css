@@ -279,8 +279,6 @@ html.menu-open { overflow: hidden; }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 .art .scan { stroke: var(--lilac); stroke-width: 1; opacity: .5; animation: scan 5s linear infinite; }
 @keyframes scan { from { transform: translateX(30px); } to { transform: translateX(375px); } }
-.art .fence { fill: rgb(108 59 255 / .15); stroke: var(--lilac); stroke-width: 1; transform-box: fill-box; transform-origin: center; animation: fence 2.8s ease-out infinite; }
-@keyframes fence { 0% { transform: scale(.4); opacity: 1; } 100% { transform: scale(1.4); opacity: 0; } }
 .art .lvl { fill: var(--violet); transform-box: fill-box; transform-origin: 50% 100%; animation: charge 3.6s var(--ease-io) infinite alternate; }
 @keyframes charge { from { transform: scaleY(.18); } to { transform: scaleY(1); } }
 .art .reach { fill: rgb(108 59 255 / .12); stroke: var(--lilac); stroke-dasharray: 3 4; transform-box: fill-box; transform-origin: center; animation: breathe 3s ease-in-out infinite; }
