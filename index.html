@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Venance Komu · Engineering, Mathematics &amp; Data</title>
-  <meta name="description" content="Venance Komu, electrical engineering and mathematics student at Alfred University with a computer science minor. Gallium supply-chain research, data work, machine learning and computer vision projects, and an off-grid tiny house.">
+  <meta name="description" content="Venance Komu, electrical engineering and mathematics student at Alfred University with a computer science minor. A C++ order-book liquidity simulator, a PCB component detector with critical-material recovery modeling, gallium supply-chain research, machine learning projects, and an off-grid tiny house.">
   <meta name="theme-color" content="#0d0d0f">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -243,8 +243,26 @@
           <div class="p-intro">
             <p class="label">(Projects)</p>
             <h2 class="big" data-split>Selected work</h2>
-            <p class="p-hint">Six things I've built, modeled or prototyped, one of them as a team project.</p>
+            <p class="p-hint">Seven things I've built, modeled or prototyped, one of them as a team project.</p>
           </div>
+
+          <article class="card">
+            <div class="card-art" data-art="market"></div>
+            <p class="card-meta"><span>Quant finance</span><span>Oct 2026</span></p>
+            <h3>Market Liquidity Risk Engine</h3>
+            <p>A C++17 limit order book with price-time priority matching, partial fills and cancellations, run on 1,000 synthetic market events. Python measures spread, depth, imbalance and slippage. In one run, a 20,000-share buy filled only 80.65% at 2.86% slippage because the book ran out of liquidity.</p>
+            <ul class="tags"><li>C++17</li><li>Python</li><li>pandas</li><li>Matplotlib</li></ul>
+            <a class="card-link" href="https://github.com/venancekomu03-hub/Market-Liquidity-Risk-Engine" target="_blank" rel="noopener" data-roll data-cursor="Code">Code on GitHub ↗</a>
+          </article>
+
+          <article class="card">
+            <div class="card-art" data-art="pcb"></div>
+            <p class="card-meta"><span>Computer vision</span><span>2026</span></p>
+            <h3>PCB Component Detection &amp; Recovery Risk Engine</h3>
+            <p>Detects components on circuit-board images with YOLOv8 (8 classes, 85.97% mAP@50), then estimates recoverable gallium, tantalum, palladium, gold and indium with 10,000 Monte Carlo simulations and Sobol sensitivity analysis. Material inputs are stated assumptions, not lab measurements.</p>
+            <ul class="tags"><li>YOLOv8</li><li>PyTorch</li><li>Monte Carlo</li><li>Sobol</li></ul>
+            <a class="card-link" href="https://github.com/venancekomu03-hub/Critical-Material-Recovery-Intelligence" target="_blank" rel="noopener" data-roll data-cursor="Code">Code on GitHub ↗</a>
+          </article>
 
           <article class="card">
             <div class="card-art" data-art="portal"></div>
@@ -252,14 +270,6 @@
             <h3>TCMS Utility Billing Portal</h3>
             <p>A utility-billing admin portal in Laravel (PHP), co-developed with a teammate. It calls a backend API to manage utility providers, tariffs, customers, meters and debt assignment, enforces role-based access control on each action, and gives admins and providers their own dashboards.</p>
             <ul class="tags"><li>Laravel</li><li>PHP</li><li>REST APIs</li><li>RBAC</li></ul>
-          </article>
-
-          <article class="card">
-            <div class="card-art" data-art="pcb"></div>
-            <p class="card-meta"><span>Research project</span><span>Summer 2026</span></p>
-            <h3>Circuit Component Detector</h3>
-            <p>Computer vision for critical materials. I trained a YOLOv8 model in PyTorch to detect five component classes (ICs, capacitors, resistors, transistors and connectors) on about 500 circuit-board images with 2,000+ labeled instances. A critical-materials reference database then turns the detections into an estimate of each board's material content in mg or g, with the assumptions stated.</p>
-            <ul class="tags"><li>Computer vision</li><li>PyTorch</li><li>YOLOv8</li><li>OpenCV</li><li>Linux</li></ul>
           </article>
 
           <article class="card">

@@ -256,6 +256,7 @@ html.menu-open { overflow: hidden; }
 .card > p:not(.card-meta) { margin-top: 10px; font-size: 14px; color: var(--muted); max-width: 54ch; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
 .tags li { font-size: 12px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; }
+.card-link { width: fit-content; margin-top: 14px; padding-bottom: 2px; font-size: 14px; font-weight: 500; border-bottom: 1px solid var(--line); --roll-to: var(--lilac); }
 .p-progress { display: none; }
 
 /* pinned horizontal mode (desktop, motion allowed) */
@@ -279,6 +280,8 @@ html.menu-open { overflow: hidden; }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 .art .scan { stroke: var(--lilac); stroke-width: 1; opacity: .5; animation: scan 5s linear infinite; }
 @keyframes scan { from { transform: translateX(30px); } to { transform: translateX(375px); } }
+.art .sweep { animation: sweep 3.6s ease-in-out infinite; }
+@keyframes sweep { 0%, 15% { opacity: 0; } 40%, 85% { opacity: 1; } 100% { opacity: 0; } }
 .art .lvl { fill: var(--violet); transform-box: fill-box; transform-origin: 50% 100%; animation: charge 3.6s var(--ease-io) infinite alternate; }
 @keyframes charge { from { transform: scaleY(.18); } to { transform: scaleY(1); } }
 .art .reach { fill: rgb(108 59 255 / .12); stroke: var(--lilac); stroke-dasharray: 3 4; transform-box: fill-box; transform-origin: center; animation: breathe 3s ease-in-out infinite; }

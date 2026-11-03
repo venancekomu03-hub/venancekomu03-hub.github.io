@@ -115,6 +115,25 @@
         ${reduce ? '' : '<line class="scan" x1="0" y1="40" x2="0" y2="202"/>'}`);
     },
 
+    // Order-book depth: bids left, asks right, and a large buy order sweeping three ask levels.
+    market() {
+      return svg('art-market', `
+        ${gridLines()}
+        <path d="M40 200V70H60V86H85V104H110V128H135V150H160V170H185V200Z" fill="#ededea" fill-opacity=".06"/>
+        <path d="M215 200V178H240V160H265V136H290V118H315V96H340V80H360V200Z" fill="#6c3bff" fill-opacity=".18"/>
+        <path class="sweep" d="M215 200V178H240V160H265V136H290V200Z" fill="#b6a1ff" fill-opacity=".28"/>
+        <path class="ln draw" pathLength="1" d="M40 70H60V86H85V104H110V128H135V150H160V170H185V200"/>
+        <path class="vio-ln draw" pathLength="1" d="M215 200V178H240V160H265V136H290V118H315V96H340V80H360"/>
+        <line x1="30" y1="200" x2="370" y2="200" stroke="#ededea" stroke-opacity=".3"/>
+        <line x1="200" y1="56" x2="200" y2="200" stroke="#ededea" stroke-opacity=".25" stroke-dasharray="2 4"/>
+        <path d="M185 207v5h30v-5" fill="none" stroke="#ededea" stroke-opacity=".5"/>
+        <text class="t" x="200" y="226" text-anchor="middle">spread</text>
+        <text class="t" x="52" y="190">bids</text>
+        <text class="t" x="352" y="190" text-anchor="end">asks</text>
+        <g class="sweep"><path class="vio-ln" d="M215 112H287M282 108l5 4-5 4"/><text class="hi" x="251" y="102" text-anchor="middle">slippage</text></g>
+        <text class="t" x="20" y="26">Order-book depth · a large buy sweeps the asks (illustrative)</text>`);
+    },
+
     // Illustrative X-ray fluorescence spectrum with the gallium K lines.
     xrf() {
       const id = `xg${++uid}`;
