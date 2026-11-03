@@ -220,6 +220,21 @@
         <g class="pointer"><path d="M300 150 l0 22 6 -6 5 10 4 -2 -5 -10 8 0z" fill="#ededea"/></g>`);
     },
 
+    // Measurements with error bars and a fitted line (teaching measurement uncertainty).
+    fit() {
+      const r = seeded(7);
+      const pts = Array.from({ length: 9 }, (_, i) => {
+        const x = 60 + i * 36;
+        return { x, y: 196 - (x - 40) * 0.42 + (r() - 0.5) * 34, e: 8 + r() * 12 };
+      });
+      return svg('art-fit', `
+        ${gridLines()}
+        <path class="vio-ln draw" d="M44 200L360 66" pathLength="1"/>
+        ${pts.map((p) => `<path class="ln" d="M${p.x} ${(p.y - p.e).toFixed(1)}V${(p.y + p.e).toFixed(1)}M${p.x - 4} ${(p.y - p.e).toFixed(1)}h8M${p.x - 4} ${(p.y + p.e).toFixed(1)}h8"/><circle class="vio" cx="${p.x}" cy="${p.y.toFixed(1)}" r="4"/>`).join('')}
+        <line class="ln" x1="36" y1="214" x2="370" y2="214" stroke-opacity=".35"/>
+        <text class="hi" x="44" y="44">y = mx + b ± σ</text>`);
+    },
+
     // Spreadsheet with cells being flagged.
     grid() {
       const r = seeded(5);
